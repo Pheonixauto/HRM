@@ -11,17 +11,19 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort,MatSortModule } from '@angular/material/sort';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-employee',
   standalone: true,
   imports: [CommonModule, MatToolbarModule, MatButtonModule, MatIconModule, MatDialogModule, MatTableModule,
-    MatPaginatorModule,MatSortModule],
+    MatPaginatorModule,MatSortModule,MatFormFieldModule, MatInputModule],
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.scss']
 })
 export class EmployeeComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'gender'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'gender','action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -35,7 +37,20 @@ export class EmployeeComponent implements OnInit {
 
 
   openAddEditEmployee() {
-    this._dialog.open(EmployeeAddEditComponent)
+   const dialogRef= this._dialog.open(EmployeeAddEditComponent);
+   dialogRef.afterClosed().subscribe({
+    next:(val:any)=>{
+      this.getEmployeeList();
+    },
+    error:(err)=>{
+      console.log(err)
+    }
+   })
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   getEmployeeList() {
@@ -44,6 +59,17 @@ export class EmployeeComponent implements OnInit {
         this.dataSource = new MatTableDataSource<any>(res);
         this.dataSource.sort = this.sort
         this.dataSource.paginator = this.paginator
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+  }
+
+  deleteEmployee(id:any) {
+    this._employeeService.deleteEmployee(id).subscribe({
+      next: (res) => {
+        this.getEmployeeList();
       },
       error: (err) => {
         console.log(err)

@@ -28,30 +28,6 @@
       "experience": 6,
       "package": 1000,
       "id": 1
-    },
-    {
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "birthday": null,
-      "gender": "",
-      "education": "",
-      "company": "",
-      "experience": null,
-      "package": null,
-      "id": 2
-    },
-    {
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "birthday": null,
-      "gender": "",
-      "education": "",
-      "company": "",
-      "experience": null,
-      "package": null,
-      "id": 3
     }
   ]
 }
