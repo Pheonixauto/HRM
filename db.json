@@ -19,11 +19,11 @@
   "employee": [
     {
       "firstName": "Nguyễn",
-      "lastName": "Thái",
+      "lastName": "Tháif",
       "email": "thanhthai2604@gmail.com",
       "birthday": "2023-06-12T17:00:00.000Z",
       "gender": "male",
-      "education": "A",
+      "education": "B",
       "company": "google",
       "experience": 6,
       "package": 1000,
