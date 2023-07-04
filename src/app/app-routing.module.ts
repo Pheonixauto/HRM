@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { EmployeeComponent } from './employee/employee.component';
 
 const routes: Routes = [
-  {path:'', pathMatch:'full', redirectTo:'home'},
+  { path: '', pathMatch: 'full', redirectTo: 'main' },
   {
-    path: 'home', loadComponent: () => import('./component/home/home.component').then(m => m.HomeComponent),
-    loadChildren: () => import('./component/home/home.router').then(m => m.HOME_ROUTER)
+    path: 'main', loadComponent: () => import('./component/main/main.component').then(m => m.MainComponent),
+    loadChildren: () => import('./component/main/main.router').then(m => m.MAIN_ROUTER)
   },
   { path: 'employee', component: EmployeeComponent }
 ];

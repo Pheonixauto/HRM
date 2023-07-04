@@ -6,6 +6,44 @@
       "author": "typicode"
     }
   ],
+  "seller": [
+    {
+      "name": "Nguyễn Thanh Thái",
+      "password": "uuuu",
+      "email": "thanhthai2604@gmail.com",
+      "id": 1
+    },
+    {
+      "name": "Nguyễn Thanh Thái",
+      "password": "fff",
+      "email": "thanhthai2604@gmail.com",
+      "id": 2
+    },
+    {
+      "name": "Nguyễn Thanh Thái",
+      "password": "gghgh",
+      "email": "thanhthai2604@gmail.com",
+      "id": 3
+    },
+    {
+      "name": "Nguyễn Thanh Thái",
+      "password": "kkk",
+      "email": "thanhthai2604@gmail.com",
+      "id": 4
+    },
+    {
+      "name": "Nguyễn Thanh Thái",
+      "password": "jkj",
+      "email": "thanhthai2604@gmail.com",
+      "id": 5
+    },
+    {
+      "name": "Nguyễn Thanh Thái",
+      "password": "kk",
+      "email": "thanhthai2604@gmail.com",
+      "id": 6
+    }
+  ],
   "comments": [
     {
       "id": 1,
