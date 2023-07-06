@@ -15,5 +15,10 @@ export const MAIN_ROUTER: Routes = [
   {
     path: 'seller-auth', loadComponent: () => import('../seller-auth/seller-auth.component')
       .then(m => m.SellerAuthComponent)
+  },
+  {
+    path: 'seller-add-product', loadComponent: () => import('../seller-add-product/seller-add-product.component')
+      .then(m => m.SellerAddProductComponent),
+      canActivate:[authGuard]
   }
 ];
