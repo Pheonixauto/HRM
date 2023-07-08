@@ -10,6 +10,7 @@ import { NavbarComponent } from './share/component/navbar/navbar.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AppRoutingModule } from './app-routing.module';
 
     TestComponent,
     NavbarComponent,
+    NgbModule,
 
   ],
   providers: [
