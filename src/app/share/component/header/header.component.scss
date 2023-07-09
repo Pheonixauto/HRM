@@ -16,11 +16,20 @@
     margin-left: 5%;
     margin-right: 5%;
 
+    .suggested-result{
+      position: absolute;
+      display: list-item;
+      z-index: 10;
+      background-color: white;
+      width: 300px;
+      top: 48px;
+      border: 1px solid black;
+    }
     input {
       flex: 1;
       color: blueviolet;
       border: 1px solid blueviolet;
-      height: 35px;
+      height: 39px;
       border-right: 0;
     }
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
+import { ProductService } from 'src/app/service/product/product.service';
+import { Product } from 'src/app/data/data-type';
 
 @Component({
   selector: 'app-header',
@@ -11,8 +13,9 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   menuType: string = 'default'
-  sellerName:string='';
-  constructor(private _route: Router) {}
+  sellerName: string = '';
+  searchResultProduct: undefined|Product[]
+  constructor(private _route: Router, private _productService: ProductService) { }
   ngOnInit(): void {
     this._route.events.subscribe({
       next: (val: any) => {
@@ -25,7 +28,7 @@ export class HeaderComponent implements OnInit {
             this.sellerName = sellerData.name;
           } else {
             console.log('out seller area');
-            this.menuType='default';
+            this.menuType = 'default';
           }
         }
       },
@@ -35,8 +38,38 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-  logOut(){
+  logOut() {
     localStorage.removeItem('seller');
     this._route.navigate(['/'])
+  }
+
+  searchForProducts(query: KeyboardEvent) {
+    if (query) {
+      const element = query.target as HTMLInputElement
+      console.log(element.value)
+      this.getProductBySearch(element.value)
+    }
+  }
+
+  getProductBySearch(query: string) {
+    this._productService.searchProduct(query).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.searchResultProduct=res
+      }, error: (err) => {
+        alert(err)
+      }
+    })
+  }
+
+  hideSearch(){
+    this.searchResultProduct=undefined
+  }
+
+  submitSearch(value:string){
+    console.log(value)
+    if(value){
+      this._route.navigate([`/main/search/${value}`])
+    }
   }
 }

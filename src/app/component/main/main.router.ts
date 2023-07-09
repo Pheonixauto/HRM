@@ -16,6 +16,10 @@ export const MAIN_ROUTER: Routes = [
       .then(m => m.SellerAuthComponent)
   },
   {
+    path: 'search/:query', loadComponent: () => import('../search/search.component')
+      .then(m => m.SearchComponent)
+  },
+  {
     path: 'seller-add-product', loadComponent: () => import('../seller-add-product/seller-add-product.component')
       .then(m => m.SellerAddProductComponent),
     canActivate: [authGuard]
