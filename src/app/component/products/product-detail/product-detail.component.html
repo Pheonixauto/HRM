@@ -1,0 +1,20 @@
+<div class="row product-detail" *ngIf="product" >
+  <div class="col-sm-6">
+    <img class="product-image" [src]="product.image" alt="">
+  </div>
+  <div class="col-sm-6">
+    <div class="details">
+      <h1>{{product.name}}</h1>
+      <h3>Price :{{product.price}}</h3>
+      <h6>{{product.category}}</h6>
+      <h6>{{product.description}}</h6>
+      <button>Add to Cart</button>
+      <button>Buy Now</button>
+      <div class="quantity-group">
+        <button>-</button>
+        <input type="text" value="1">
+        <button>+</button>
+      </div>
+    </div>
+  </div>
+</div>

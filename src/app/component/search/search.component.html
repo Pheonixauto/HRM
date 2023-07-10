@@ -1,14 +1,16 @@
 <div class="row search-item" *ngFor="let item of searchResult">
   <div class="col-sm-3">
-    <img src="https://i.pinimg.com/originals/2b/c7/bc/2bc7bc0dd7f5520a81cff89f5fc09391.jpg" alt="">
+    <a [routerLink]="['/main/product-detail',item.id]">
+      <img [src]="item.image" alt="">
+    </a>
+
   </div>
   <div class="col-sm-8 detail">
-    <h6>Product Name</h6>
-    <p><b>Price :90000</b></p>
-    <p><span>Ctegory</span></p>
+    <h6>
+      <a [routerLink]="['/main/product-detail',item.id]">{{item.name}}</a>
+    </h6>
+    <p><b>Price :{{item.price}}</b></p>
+    <p><span>{{item.category}}</span></p>
     <p> A product search for Ui</p>
   </div>
 </div>
-
-
-

@@ -20,6 +20,10 @@ export const MAIN_ROUTER: Routes = [
       .then(m => m.SearchComponent)
   },
   {
+    path: 'product-detail/:productId', loadComponent: () => import('../products/product-detail/product-detail.component')
+      .then(m => m.ProductDetailComponent)
+  },
+  {
     path: 'seller-add-product', loadComponent: () => import('../seller-add-product/seller-add-product.component')
       .then(m => m.SellerAddProductComponent),
     canActivate: [authGuard]

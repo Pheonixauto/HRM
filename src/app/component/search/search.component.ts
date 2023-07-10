@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProductService } from 'src/app/service/product/product.service';
 import { Product } from 'src/app/data/data-type';
 import { switchMap } from 'rxjs/operators';
@@ -8,7 +8,7 @@ import { Observable, Subscription } from 'rxjs';
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
